@@ -1,10 +1,9 @@
 __author__ = 'liulei'
 
-this_sum = 0
-max_sum = 0;
+
 def maxSequence(arr):
-    global this_sum
-    global max_sum
+    this_sum = 0
+    max_sum = 0
     for i in arr:
         this_sum += i
         if this_sum > max_sum:
