@@ -7,6 +7,7 @@
 var twoSum = function(numbers, target) {
 	var len = numbers.length;
 	var table = new Map();
+	
 	for(let i=0;i<len;i++){
 		if(table.has(numbers[i])){
 			return [table.get(numbers[i])+1,i+1];
