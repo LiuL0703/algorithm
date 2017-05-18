@@ -6,3 +6,4 @@
 var reverseStr = function(s, k) {
     var res = s.splice()
 };
+
