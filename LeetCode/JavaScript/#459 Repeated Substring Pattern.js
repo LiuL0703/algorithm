@@ -2,59 +2,52 @@
  * @param {string} s
  * @return {boolean}
  */
-/*var repeatedSubstringPattern = function(s) {
-    var pos = s.slice(1).indexOf(s[0]);
-    if(pos===-1) return false;
-    var val = s.slice(0,pos+1);
-    var re = new RegExp(val);
-    while(re.test(s)){
-      s = s.slice(pos+1);
-    }
-    return !s;
-};*/
+
+// TLE
 var repeatedSubstringPattern = function(s) {
-  if(s.length===1) return false;
-  var flag = Math.ceil(s.length/2);
-  var temp = s;
-  var count = 0;
+    var len = s.length
+    if(len===1) return false;
+    var flag = Math.ceil(len/2);
+    var temp = s;
+    var count = 0;
+    var re;
     while(flag){
       count++;
       flag--;
-      var re = new RegExp(s.slice(0,count));
+      if(len%count!==0){
+		continue;
+      }
+      re = new RegExp(s.slice(0,count));
       while(re.test(s)){
         s = s.replace(re,"");
       }
       if(!s) break;
       s = temp;
     }
-    
     return !s;
 };
 
 
+var repeatedSubstringPattern = function(s){
+	var len = s.length;
+	var half = Math.floor(len/2);
 
-/**
- * @param {string} s
- * @return {string}
- */
-var reverseVowels = function(s) {
-	temp = s;
-    s = s.split("");
-    var len = s.length;
-    var pos,tmp1,tmp2,tmp3;
-    var re = /a|e|i|o|u/;
-    pos = s.search(re);
-    tmp1 = s[pos];
-    temp = temp.slice(pos);
-    while(pos!==-1){
-    	tmp3 = tmp1;
-    	tmp1 = s[pos];
-    	tmp2 = tmp3;
-    	temp = temp.slice(pos);
-    }
+	for(let i = 1;i <= half; i++){
+		if(len % i!==0){
+			continue;
+		}
+		var cur = s.substr(0,i);
+		var flag = true;
+		for(let j = i; j <= len-i;j+=i){
+			if(s.substr(j,i)!==cur){
+				flag = false;
+				break;
+			}
+		}
+		if(flag){
+			return true;
+		}
+	}
+	return false;
+}
 
-    return s.join("");
-};
-
-reverseVowels("hello");
-reverseVowels("leetcode");
