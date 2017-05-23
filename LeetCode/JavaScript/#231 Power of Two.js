@@ -12,3 +12,14 @@ var isPowerOfTwo = function(n) {
     	return false;
     }
 };
+
+
+var isPowerOfTwo = function(n) {
+    n = n.toString(2);
+    var len = n.length-1;
+    var re = new RegExp("0"+"{"+len+"}")
+    if(n[0]==="1"&&re.test(n.slice(1))){
+      return true;
+    }
+    return false;
+};
