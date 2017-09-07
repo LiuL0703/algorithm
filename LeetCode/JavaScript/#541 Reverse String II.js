@@ -4,6 +4,13 @@
  * @return {string}
  */
 var reverseStr = function(s, k) {
-    var res = s.splice()
+    if(s.length <= k ) return s.split("").reverse().join("");
+    var res = [];
+    s = s.split("");
+    while(s.length>k){
+        res.push(...(s.splice(0,k).reverse()));
+        res = res.concat(s.splice(0,k));
+    }
+    res.push(...(s.reverse()));
+    return res.join("");
 };
-
