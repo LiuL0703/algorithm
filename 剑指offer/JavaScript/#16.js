@@ -8,6 +8,9 @@
     this.next = null;
  }
 */
+/** 
+ * 递增链表 只需要对比头结点做一次遍历 小的拿出来即可
+ */
 /**
  * 
  * @param {LinkList} pHead1 
