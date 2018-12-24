@@ -31,4 +31,5 @@ function Merge(pHead1, pHead2){
     merged = pHead1;
     merged.next = Merge(pHead1.next,pHead2);
   }
+  return merged;
 }
