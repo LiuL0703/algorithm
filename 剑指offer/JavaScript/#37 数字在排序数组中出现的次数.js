@@ -9,5 +9,5 @@
  */
 function GetNumberOfK(data, k){
   if(data.indexOf(k) === -1) return 0
-  return data.length - (data.indexOf(k)+data.reverse().indexOf(k));
+  return data.lastIndexOf(k)-data.indexOf(k) + 1;
 }
