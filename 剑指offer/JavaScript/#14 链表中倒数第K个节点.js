@@ -6,6 +6,16 @@
     this.val = x;
     this.next = null;
 }*/
+
+/**
+ *  思路： 双指针 -->快慢指针 
+ *  快指针先走k步 然后同步 当快指针到头时 慢指针所在的位置即是 倒数第k个位置
+ */
+/**
+ * 
+ * @param {LinkList} head 
+ * @param {Nood} k 
+ */
 function FindKthToTail(head, k){
     if (!head || k <= 0){
       return null;
