@@ -45,7 +45,6 @@ var numComponents = function(head, G) {
     let isContinue = false;
     while(head){
       let pos = G.indexOf(head.val);
-      let nextPos = G.indexOf(head.next.val);
       if(pos!== -1){
         if(!isContinue){
           isContinue = true;
