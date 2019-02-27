@@ -14,15 +14,18 @@
  * }
  */
 /**
- * @param {ListNode} head
- * @return {ListNode}
- */
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
+ * mind:
+ * 
+tmp --> head --> pre --> next
+tmp --> pre --> head --> next
+
+       tmp --> head --> pre --> next
+       tmp --> pre --> head --> next
+
+               tmp --> head --> pre --> next
+               tmp --> pre --> head --> next
+
+          ...
  */
 /**
  * @param {ListNode} head
@@ -34,7 +37,7 @@ var swapPairs = function(head) {
   let pre= new ListNode(null);
   let next = new ListNode(null);
   let tmp = new ListNode(null);
-  
+
   dummy = head.next;
   while(head&&head.next){
     pre = head.next;
