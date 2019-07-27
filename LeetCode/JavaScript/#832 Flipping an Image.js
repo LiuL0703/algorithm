@@ -30,3 +30,9 @@ var flipAndInvertImage = function(A) {
   }
   return res;
 };
+
+// Second
+var flipAndInvertImage = function(A) {
+  if(!A) return;
+  return A.map(row=> row.reverse().map(item => item ^ 1));
+};
