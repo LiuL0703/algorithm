@@ -28,6 +28,7 @@ Note:
  * @return {string}
  */
 var reverseOnlyLetters = function(S) {
+  if(!S) return S;
   let resLeft = '';
   let resRight = '';
   let lens = S.length;
@@ -35,7 +36,7 @@ var reverseOnlyLetters = function(S) {
   for(let i = 0; i < lens; i++){
     if(endPos < i) break;
     if(/[A-Za-z]/.test(S[i])){
-      while(endPos<0){
+      while(endPos>=0){
         if(/[A-Za-z]/.test(S[endPos])){
           resLeft = resLeft + S[endPos];
           i !== endPos? resRight = S[i]+resRight:null;
