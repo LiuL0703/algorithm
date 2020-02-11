@@ -33,3 +33,29 @@ function Merge(pHead1, pHead2){
   }
   return merged;
 }
+
+// 循环遍历
+function Merge(pHead1, pHead2) {
+    if(!pHead1) return pHead2;
+    if(!pHead2) return pHead1;
+    
+    let dumb = new ListNode(null);
+    let res = dumb;
+    while(pHead1 && pHead2){
+        if(pHead1.val > pHead2.val){
+            dumb.next = pHead2;
+            pHead2 = pHead2.next;
+        }else{
+            dumb.next = pHead1;
+            pHead1 = pHead1.next;
+        }
+        dumb = dumb.next;
+    }
+    if(pHead1){
+        dumb.next = pHead1;
+    }
+    if(pHead2){
+        dumb.next = pHead2;
+    }
+    return res.next;
+}
