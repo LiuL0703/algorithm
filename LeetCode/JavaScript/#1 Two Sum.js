@@ -9,4 +9,13 @@ var twoSum = function(nums, target) {
    }
 }
 
-
+// new Way
+const twoSum = function(nums, target) {
+	const condition = {};
+	for(let i = 0; i < nums.length; i++){
+		if(condition[nums[i]] >= 0){
+			return [condition[nums[i]], i];
+		}
+		condition[target - nums[i]] = i;
+	}
+}
