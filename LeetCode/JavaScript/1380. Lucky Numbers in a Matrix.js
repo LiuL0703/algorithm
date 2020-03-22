@@ -36,22 +36,21 @@ All elements in the matrix are distinct.} matrix
  */
 var luckyNumbers  = function(matrix) {
   const column = matrix.length;
-  const row = matrix[0].length;
   
   for(let c = 0; c < column; c++){
       let minRow = Math.min(...matrix[c]);
       let pos = matrix[c].indexOf(minRow);
       
       if(minRow === matrix[c][pos]){
-         let tmpMaxRow = matrix[c][pos];
+         let tmpMaxColumn = matrix[c][pos];
          for(let j = 0; j < column; j++){
-             if(matrix[j][pos] > tmpMaxRow){
-                 tmpMaxRow = matrix[j][pos];
+             if(matrix[j][pos] > tmpMaxColumn){
+                 tmpMaxColumn = matrix[j][pos];
                  break;
              }
          }
-         if(tmpMaxRow === minRow){
-             return [tmpMaxRow];
+         if(tmpMaxColumn === minRow){
+             return [tmpMaxColumn];
          }
      }
   }
