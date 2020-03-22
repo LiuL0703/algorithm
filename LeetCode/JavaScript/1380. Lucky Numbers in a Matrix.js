@@ -29,35 +29,32 @@ All elements in the matrix are distinct.} matrix
  
 */
 
-
 /**
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var luckyNumbers  = function(matrix) {
+var luckyNumbers = function(matrix) {
   const column = matrix.length;
-  
-  for(let c = 0; c < column; c++){
-      let minRow = Math.min(...matrix[c]);
-      let pos = matrix[c].indexOf(minRow);
-      
-      if(minRow === matrix[c][pos]){
-         let tmpMaxColumn = matrix[c][pos];
-         for(let j = 0; j < column; j++){
-             if(matrix[j][pos] > tmpMaxColumn){
-                 tmpMaxColumn = matrix[j][pos];
-                 break;
-             }
-         }
-         if(tmpMaxColumn === minRow){
-             return [tmpMaxColumn];
-         }
-     }
+
+  for (let c = 0; c < column; c++) {
+    let minRow = Math.min(...matrix[c]);
+    let pos = matrix[c].indexOf(minRow);
+
+    if (minRow === matrix[c][pos]) {
+      let tmpMaxColumn = matrix[c][pos];
+      for (let j = 0; j < column; j++) {
+        if (matrix[j][pos] > tmpMaxColumn) {
+          tmpMaxColumn = matrix[j][pos];
+          break;
+        }
+      }
+      if (tmpMaxColumn === minRow) {
+        return [tmpMaxColumn];
+      }
+    }
   }
-  return []
+  return [];
 };
-
-
 
 /**
  * 2020-03-15
